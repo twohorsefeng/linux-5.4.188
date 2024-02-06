@@ -76,7 +76,24 @@ static const SNAND_IO_CAP(snand_cap_program_load_x4,
 	SNAND_OP(SNAND_IO_1_1_1, SNAND_CMD_PROGRAM_LOAD, 0),
 	SNAND_OP(SNAND_IO_1_1_4, SNAND_CMD_PROGRAM_LOAD_X4, 0));
 
-static const struct snand_flash_info snand_flash_ids[] = {  
+static const struct snand_flash_info snand_flash_ids[] = {
+	SNAND_INFO("F50L1G41LB(2M)", SNAND_ID(SNAND_ID_DYMMY, 0xc8, 0x01),
+		   SNAND_MEMORG_1G_2K_64,
+		   &snand_cap_read_from_cache_quad,
+		   &snand_cap_program_load_x4),
+	SNAND_INFO("F50L2G41KA(2V)", SNAND_ID(SNAND_ID_DYMMY, 0xc8, 0x41),
+		   SNAND_MEMORG_2G_2K_128,
+		   &snand_cap_read_from_cache_quad,
+		   &snand_cap_program_load_x4),
+	SNAND_INFO("F50L2G41XA(2B)", SNAND_ID(SNAND_ID_DYMMY, 0x2c, 0x24),
+		   SNAND_MEMORG_2G_2K_128_2P,
+		   &snand_cap_read_from_cache_quad,
+		   &snand_cap_program_load_x4),
+	SNAND_INFO("F50L4G41XB(2X)", SNAND_ID(SNAND_ID_DYMMY, 0x2c, 0x34),
+		   SNAND_MEMORG_4G_4K_256,
+		   &snand_cap_read_from_cache_quad,
+		   &snand_cap_program_load_x4),
+		   
 	SNAND_INFO("W25N512GV", SNAND_ID(SNAND_ID_DYMMY, 0xef, 0xaa, 0x20),
 		   SNAND_MEMORG_512M_2K_64,
 		   &snand_cap_read_from_cache_quad,
